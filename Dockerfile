@@ -1,7 +1,7 @@
 FROM ubuntu:14.04
 MAINTAINER Keyvan Fatehi <keyvanfatehi@gmail.com>
 
-ENV STRIDER_TAG v1.6.4
+ENV STRIDER_TAG v1.7.5
 ENV STRIDER_REPO https://github.com/Strider-CD/strider
 
 RUN locale-gen en_US.UTF-8
@@ -10,7 +10,7 @@ ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8  
 
 RUN apt-get update && \
-  apt-get install -y git supervisor python-pip nodejs npm && \
+  apt-get install -y git supervisor python-pip nodejs npm vim && \
   update-alternatives --install /usr/bin/node node /usr/bin/nodejs 10 && \
   pip install supervisor-stdout && \
   sed -i 's/^\(\[supervisord\]\)$/\1\nnodaemon=true/' /etc/supervisor/supervisord.conf
